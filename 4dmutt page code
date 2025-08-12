@@ -1,0 +1,191 @@
+// 4dmutt_website.jsx
+// Single-file React component (Tailwind CSS required)
+// Usage:
+// - Drop this into a Next.js page (e.g., pages/index.jsx) or a Vite/CRA app
+// - Ensure Tailwind is configured in the project
+// - Replace placeholder images and links as needed
+
+import React from 'react';
+
+export default function FourDMutt() {
+  return (
+    <div className="min-h-screen bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900 text-white antialiased">
+      {/* NAV */}
+      <header className="max-w-6xl mx-auto px-6 py-6 flex items-center justify-between">
+        <div className="flex items-center gap-3">
+          <Logo className="w-12 h-12" />
+          <div>
+            <h1 className="text-lg font-semibold tracking-tight">4D Mutt</h1>
+            <p className="text-xs text-slate-300">four-dimensional pet art & merch</p>
+          </div>
+        </div>
+        <nav className="hidden md:flex gap-6 text-slate-200">
+          <a href="#about" className="hover:underline">About</a>
+          <a href="#gallery" className="hover:underline">Gallery</a>
+          <a href="#shop" className="hover:underline">Shop</a>
+          <a href="#contact" className="hover:underline">Contact</a>
+        </nav>
+        <div className="md:hidden text-slate-300">/* mobile menu TODO */</div>
+      </header>
+
+      {/* HERO */}
+      <main className="max-w-6xl mx-auto px-6">
+        <section className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center py-12">
+          <div>
+            <h2 className="text-4xl md:text-5xl font-extrabold leading-tight">4D Mutt — where dogs bend dimensions</h2>
+            <p className="mt-4 text-slate-300 max-w-xl">Custom generative dog portraits, merch drops, and immersive 3D prints. We blend street, sci-fi, and ATL attitude into collectible art you can wear, display, and flex.</p>
+
+            <div className="mt-6 flex gap-3">
+              <a href="#shop" className="px-5 py-3 bg-amber-500 rounded-lg font-semibold text-slate-900 shadow-md hover:scale-[1.02] transition">Shop Drops</a>
+              <a href="#contact" className="px-5 py-3 border border-slate-600 rounded-lg text-slate-200 hover:bg-slate-800 transition">Get a Commission</a>
+            </div>
+
+            <div className="mt-6 text-sm text-slate-400">Free previews for first 10 commissions each month. Email: <a className="underline" href="mailto:hello@4dmutt.example">hello@4dmutt.example</a></div>
+          </div>
+
+          <div className="relative">
+            <div className="w-full aspect-[4/3] rounded-2xl overflow-hidden bg-gradient-to-tr from-indigo-600 via-pink-500 to-amber-400 shadow-2xl">
+              {/* Placeholder for hero image / 3D canvas */}
+              <div className="w-full h-full flex items-center justify-center">
+                <svg width="320" height="240" viewBox="0 0 320 240" fill="none" xmlns="http://www.w3.org/2000/svg" className="opacity-95">
+                  <rect width="320" height="240" rx="20" fill="url(#g)" />
+                  <defs>
+                    <linearGradient id="g" x1="0" x2="1" y1="0" y2="1">
+                      <stop offset="0" stopColor="#0ea5e9" />
+                      <stop offset="1" stopColor="#f97316" />
+                    </linearGradient>
+                  </defs>
+                </svg>
+              </div>
+            </div>
+            <div className="absolute left-4 bottom-4 bg-black/40 backdrop-blur rounded-xl p-3 text-xs text-slate-200">Limited edition: "Braves Drop" — 12 pieces</div>
+          </div>
+        </section>
+
+        {/* ABOUT / FEATURES */}
+        <section id="about" className="py-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <Feature title="Custom Generative Portraits" desc="AI-assisted, hand-polished. You pick the vibe — grime, ATL, sci-fi, or interdimensional." />
+            <Feature title="Limited Merch Drops" desc="Tees, hoodies, enamel pins, and 3D prints. Numbered drops, RSVP list, and early access for members." />
+            <Feature title="Commissions & Collabs" desc="Brand collabs, label art, and one-off sculptures. We consult on production and distribution." />
+          </div>
+        </section>
+
+        {/* GALLERY */}
+        <section id="gallery" className="py-8">
+          <h3 className="text-2xl font-bold">Selected Gallery</h3>
+          <p className="text-slate-400 mt-2">A rotating showcase — click to view full resolution.</p>
+          <div className="mt-6 grid grid-cols-2 md:grid-cols-4 gap-4">
+            {Array.from({ length: 8 }).map((_, i) => (
+              <div key={i} className="rounded-xl overflow-hidden bg-gradient-to-br from-slate-700 to-slate-800 p-1">
+                <div className="aspect-square bg-gradient-to-tr from-indigo-500 via-pink-500 to-amber-400 flex items-center justify-center"> 
+                  <div className="text-sm text-black font-bold">Sample #{i + 1}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* SHOP / PRICING */}
+        <section id="shop" className="py-8">
+          <h3 className="text-2xl font-bold">Shop & Pricing</h3>
+          <div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-6">
+            <Card title="Digital Portrait" price="$75" bullets={["High-res PNG", "1 revision", "Commercial use available"]} />
+            <Card title="Limited Tee" price="$45" bullets={["Premium cotton", "Numbered", "Free shipping on orders $100+"]} />
+            <Card title="3D Print - Small" price="$225" bullets={["Polished resin", "Signed base", "Worldwide shipping"]} />
+          </div>
+        </section>
+
+        {/* CONTACT */}
+        <section id="contact" className="py-10">
+          <h3 className="text-2xl font-bold">Contact & Commissions</h3>
+          <p className="text-slate-400 mt-2">Tell us the vibe, timeline, and budget. We'll get a mock to you fast.</p>
+
+          <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+            <form className="p-6 rounded-xl bg-slate-800/60 backdrop-blur">
+              <label className="block text-sm text-slate-300">Name</label>
+              <input className="mt-1 w-full bg-transparent border border-slate-700 rounded p-2" placeholder="Your name" />
+
+              <label className="block text-sm text-slate-300 mt-4">Email</label>
+              <input type="email" className="mt-1 w-full bg-transparent border border-slate-700 rounded p-2" placeholder="you@example.com" />
+
+              <label className="block text-sm text-slate-300 mt-4">Project brief</label>
+              <textarea className="mt-1 w-full bg-transparent border border-slate-700 rounded p-2" rows={4} placeholder="Describe the dog, vibe, accessories, deadline..."></textarea>
+
+              <div className="mt-4 flex gap-3">
+                <button type="button" className="px-4 py-2 bg-amber-500 rounded font-semibold text-slate-900">Send</button>
+                <button type="button" className="px-4 py-2 border border-slate-600 rounded">Save draft</button>
+              </div>
+            </form>
+
+            <div className="p-6 rounded-xl bg-slate-800/40">
+              <h4 className="font-semibold">Quick links</h4>
+              <ul className="mt-3 text-slate-300 space-y-2">
+                <li><a className="underline" href="#shop">Shop</a></li>
+                <li><a className="underline" href="#gallery">Gallery</a></li>
+                <li><a className="underline" href="mailto:hello@4dmutt.example">Email us</a></li>
+              </ul>
+
+              <div className="mt-6 text-sm text-slate-400">Follow: <span className="font-medium">@4dmutt</span></div>
+            </div>
+          </div>
+        </section>
+
+        {/* FOOTER */}
+        <footer className="border-t border-slate-700 mt-12 py-6 text-slate-400">
+          <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
+            <div>© {new Date().getFullYear()} 4D Mutt — All rights reserved.</div>
+            <div className="text-sm">Made with attitude in ATL</div>
+          </div>
+        </footer>
+      </main>
+    </div>
+  );
+}
+
+function Logo(props) {
+  return (
+    <svg viewBox="0 0 64 64" fill="none" {...props}>
+      <rect width="64" height="64" rx="12" fill="#0f172a" />
+      <g transform="translate(8 8)">
+        <circle cx="16" cy="16" r="14" fill="url(#lg)" />
+        <path d="M8 26c4-8 20-8 24 0" stroke="#071133" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M14 14c0-4 8-8 10-6" stroke="#071133" strokeWidth="2" strokeLinecap="round" />
+      </g>
+      <defs>
+        <linearGradient id="lg" x1="0" x2="1" y1="0" y2="1">
+          <stop offset="0" stopColor="#f97316" />
+          <stop offset="1" stopColor="#06b6d4" />
+        </linearGradient>
+      </defs>
+    </svg>
+  );
+}
+
+function Feature({ title, desc }) {
+  return (
+    <div className="rounded-xl p-6 bg-slate-800/50 border border-slate-700">
+      <h4 className="font-semibold">{title}</h4>
+      <p className="mt-2 text-slate-300 text-sm">{desc}</p>
+    </div>
+  );
+}
+
+function Card({ title, price, bullets }) {
+  return (
+    <div className="rounded-xl p-5 bg-gradient-to-tr from-slate-800 to-slate-900 border border-slate-700">
+      <div className="flex items-baseline justify-between">
+        <h4 className="font-semibold">{title}</h4>
+        <div className="text-2xl font-bold">{price}</div>
+      </div>
+      <ul className="mt-3 text-sm text-slate-300 space-y-1">
+        {bullets.map((b, i) => (
+          <li key={i}>• {b}</li>
+        ))}
+      </ul>
+      <div className="mt-4">
+        <button className="w-full px-4 py-2 rounded bg-amber-500 text-slate-900 font-semibold">Buy</button>
+      </div>
+    </div>
+  );
+}
